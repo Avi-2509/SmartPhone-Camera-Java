@@ -1,18 +1,29 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    compileSdkVersion 31
 
     defaultConfig {
-        applicationId "com.uni.ppg"
+        applicationId "com.lybl.ppg"
         minSdkVersion 28
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+        }
+        customDebuggableBuildType {
+            debuggable true
+        }
+        release {
+            debuggable false
+        }
     }
 
     compileOptions {
@@ -33,6 +44,9 @@ dependencies {
     implementation "androidx.fragment:fragment"
     implementation group: 'com.google.guava', name: 'guava', version: guavaVersion
     implementation group: 'uk.me.berndporr', name: 'iirj', version: iirjVersion
+    implementation 'com.android.support:multidex:2.0.1'
+    implementation 'com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava'
+
 
     api "com.otaliastudios:cameraview:$cameraViewVersion"
 
